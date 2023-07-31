@@ -1,0 +1,40 @@
+.signup {
+  display: flex;
+  justify-content: center;
+  align-items: center;
+  height: 100vh;
+  background-color: #f2f2f2;
+}
+
+.Box {
+  width: 300px;
+  padding: 20px;
+  border: 1px solid #ccc;
+  border-radius: 5px;
+  background-color: #f2f2f2;
+  
+}
+
+.Box h2 {
+  text-align: center;
+}
+
+.Box form {
+  display: flex;
+  flex-direction: column;
+  
+  
+}
+
+
+.Box p {
+  text-align: center;
+  margin-top: 10px;
+}
+
+a {
+  color:  rgb(77, 217, 217);
+  text-decoration: none;
+  font-weight: bold;
+ 
+}

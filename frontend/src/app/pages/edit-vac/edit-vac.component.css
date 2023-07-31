@@ -1,0 +1,123 @@
+h2 {
+  text-align: center;
+  color: #333;
+}
+
+.container {
+  max-width: 400px;
+  margin: 0 auto;
+  padding: 20px;
+  border: 1px solid #fffbfb;
+  border-radius: 5px;
+}
+
+form {
+  display: flex;
+  flex-direction: column;
+}
+
+mat-form-field {
+  margin-bottom: 15px;
+  width: 100%;
+}
+
+mat-error {
+  color: red;
+  font-size: 15px;
+  margin-bottom: 20px;
+}
+
+textarea {
+  resize: vertical;
+  min-height: 100px;
+}
+
+.edit-button, .cancel {
+  background-color: #4CAF50;
+  color: white;
+  border: none;
+  padding: 10px 20px;
+  border-radius: 5px;
+  cursor: pointer;
+  font-size: 16px;
+  margin-top: 10px;
+}
+
+.cancel {
+  background-color: #f44336;
+  margin-right: 10px;
+}
+
+.edit-button:disabled, .cancel:disabled {
+  background-color: #ccc;
+  cursor: not-allowed;
+}
+
+.image-upload-box {
+  border: 2px dashed #ccc;
+  background-size: cover;
+  background-repeat: no-repeat;
+  background-position: center center;
+  min-height: 200px;
+  display: flex;
+  flex-direction: column;
+  align-items: center;
+  justify-content: center;
+  cursor: pointer;
+}
+
+.image-upload-box p {
+  margin-top: 10px;
+  font-size: 14px;
+}
+
+.form-field {
+  margin-bottom: 20px;
+}
+
+.form-buttons {
+  margin-top: 20px;
+  display: flex;
+  justify-content: space-between;
+}
+
+.upload-button {
+  display: inline-block;
+  padding: 10px 20px;
+  background-color: #007bff;
+  color: #fff;
+  cursor: pointer;
+  border-radius: 5px;
+}
+
+.upload-button:hover {
+  background-color: #0056b3;
+}
+
+.image-upload-box {
+  display: inline-block;
+  width: 400px;
+  height: 300px;
+  background-size: cover;
+  background-repeat: no-repeat;
+  background-position: center;
+  border: 2px dashed #ccc;
+  border-radius: 5px;
+  cursor: pointer;
+}
+
+.image-upload-box p {
+  margin-top: 80px;
+  color: #555;
+}
+
+.image-upload-box:hover {
+  border-color: #007bff;
+}
+
+.error-message {
+  color: red;
+  font-size: 17px;
+  margin: auto;
+  margin-top: -50px;
+}

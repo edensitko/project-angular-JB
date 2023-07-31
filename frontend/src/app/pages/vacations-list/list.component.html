@@ -1,0 +1,64 @@
+<h1>Vacation List</h1>
+<hr/>
+<div class="listPage">
+
+<div class="container">
+  
+  <button mat-button class="filter-button" [ngClass]="{ 'active': activeButton === 'showUpcoming' }" (click)="toggleFilter('showUpcoming')" [disabled]="activeButton !== '' && activeButton !== 'showUpcoming'">
+    {{ activeButton === 'showUpcoming' ? 'Show All Vacations' : 'Show Upcoming Vacations' }}
+  </button>
+  <button mat-button class="filter-button" [ngClass]="{ 'active': activeButton === 'showActive' }" (click)="toggleFilter('showActive')" [disabled]="activeButton !== '' && activeButton !== 'showActive'">
+    {{ activeButton === 'showActive' ? 'Show All Vacations' : 'Show Active Vacations' }}
+  </button>
+  <button mat-button class="filter-button"*ngIf="role === 'member'" [ngClass]="{ 'active': activeButton === 'showAll' }" (click)="toggleFilter('showAll')" [disabled]="activeButton !== '' && activeButton !== 'showAll'">
+    {{ activeButton === 'showAll' ?  'Show All Vacations':'Show Following Vacations' }}
+  </button>
+  
+</div>
+
+  <div class="card-container">
+    <mat-card class="card" *ngFor="let item of displayedVacData">
+      <div class="image-container">
+     <img class="card-image"[src]="'http://localhost:4000/photos/' + item.image_url" alt="Vacation Image">
+        <button class="follow-button" *ngIf="role === 'member'" (click)="followItem(item.id); updateFollow()">
+ <mat-icon
+ [ngClass]="{
+   'heart-icon': getHeartIconColor(item),
+   'heart-empty-icon': !getHeartIconColor(item)
+ }"
+ (click)="followItem(item.id)"
+>
+ favorite
+</mat-icon>
+
+
+
+  <div class="totalfollowers">{{ item.followers_count }}</div>
+</button>
+
+      </div>
+
+      <h3 class="card-title">{{ item.destination }}</h3>
+      <div class="time">
+        <h4 class="card-description date"> {{ item.start_date }} - {{ item.end_date }}</h4>
+      </div>
+      <p class="card-description des">{{ item.description }}</p>
+      <p class="card-description price"><b>{{ item.price }}$</b></p>
+      <div class="button-container">
+        <button mat-flat-button color="accent" (click)="editVacation(item.id)" class="edit-button" *ngIf="role === 'admin'">
+          edit
+        </button>
+        <button mat-flat-button color="warn" (click)="removeVac(item.id)" class="remove-button" *ngIf="role === 'admin'">
+          Remove
+        </button>
+      </div>
+    </mat-card>
+  </div>
+
+  <div class="pagination">
+    <button mat-button [disabled]="currentPage === 1" (click)="onPageChange(currentPage - 1)">Previous</button>
+    <button mat-button *ngFor="let page of getPaginationRange()" [disabled]="currentPage === page"
+      (click)="onPageChange(page)">{{ page }}</button>
+    <button mat-button [disabled]="currentPage === getTotalPages()" (click)="onPageChange(currentPage + 1)">Next</button>
+  </div>
+</div>
